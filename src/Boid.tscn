@@ -4,7 +4,7 @@
 
 [node name="Boid" type="Node2D"]
 script = ExtResource( 1 )
-colors = [ Color( 1, 1, 1, 1 ) ]
+colors = [ Color( 0.721569, 0.976471, 0.898039, 1 ), Color( 0.988235, 0.92549, 0.807843, 1 ), Color( 0.596078, 0.823529, 0.988235, 1 ) ]
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PoolVector2Array( -21.0213, -11.091, -21.1962, 10.4124, 25.3072, 0.0977631 )

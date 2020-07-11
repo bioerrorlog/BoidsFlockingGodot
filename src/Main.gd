@@ -1,6 +1,6 @@
 extends Node2D
 
-const BOIDS_COUNT = 300
+const BOIDS_COUNT = 256
 
 onready var boid_scene = preload("res://src/Boid.tscn")
 onready var boids_container = $Boids

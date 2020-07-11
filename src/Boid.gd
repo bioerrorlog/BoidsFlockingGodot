@@ -5,15 +5,17 @@ onready var detectors = $ObstacleDetectors
 onready var sensors = $ObstacleSensors
 
 var boids = []
-var move_speed = 200
+var move_speed = 600
 var perception_radius = 50
+var centralization_force_radius = 500
 var velocity = Vector2()
 var acceleration = Vector2()
 var steer_force = 50.0
-var alignment_force = 0.6
-var cohesion_force = 0.6
+var alignment_force = 1.2
+var cohesion_force = 0.5
 var seperation_force = 1.0
 var avoidance_force = 30.0
+var centralization_force = 0.5
 
 export (Array, Color) var colors
 
@@ -30,6 +32,7 @@ func _process(delta):
 	acceleration += process_alignments(neighbors) * alignment_force
 	acceleration += process_cohesion(neighbors) * cohesion_force
 	acceleration += process_seperation(neighbors) * seperation_force
+	acceleration += process_centralization(Vector2(0, 0)) * centralization_force
 
 	if is_obsticle_ahead():
 		acceleration += process_obsticle_avoidance() * avoidance_force
@@ -39,7 +42,12 @@ func _process(delta):
 	rotation = velocity.angle()
 	
 	translate(velocity * delta)
-	
+
+func process_centralization(centor: Vector2):
+	if position.distance_to(centor) < centralization_force_radius:
+		return Vector2()
+		
+	return steer((centor - position).normalized() * move_speed)	
 
 func process_cohesion(neighbors):
 	var vector = Vector2()
