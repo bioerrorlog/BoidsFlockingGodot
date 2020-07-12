@@ -1,7 +1,7 @@
-# Boids Floking in Godot Engine
-Boids flocking simulation in Godot Engine
+# RestInAbyss
+My gamedev project by Godot Engine
 
 ## Reference
-https://youtu.be/iGvbb2HlCdQ
-
+https://github.com/bioerrorlog/BoidsFlockingGodot  
+https://youtu.be/iGvbb2HlCdQ  
 https://github.com/alifelab/alife_book_src
