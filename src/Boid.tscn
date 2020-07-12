@@ -15,7 +15,6 @@ polygon = PoolVector2Array( -21.0213, -11.091, -21.1962, 10.4124, 25.3072, 0.097
 position = Vector2( 0, -10 )
 rotation = -1.5708
 enabled = true
-cast_to = Vector2( 0, 50 )
 
 [node name="RightRayCast2D" type="RayCast2D" parent="ObstacleDetectors"]
 position = Vector2( 0, 10 )
