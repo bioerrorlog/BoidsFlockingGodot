@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Prey.gd" type="Script" id=1]
+
+[node name="Prey" type="RigidBody2D"]
+mass = 0.204082
+gravity_scale = 0.0
+script = ExtResource( 1 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( -25.0822, -91.1602, -83.2382, -69.1902, -112.962, -31.7119, -116.839, 14.8129, -90.9923, 70.3842, -28.9593, 96.2313, 33.0737, 80.723, 75.7215, 47.1218, 89.9374, -8.44949, 66.675, -78.2367, 16.2731, -107.961 )

@@ -1,13 +1,11 @@
 extends Node2D
 class_name Boid
 
-onready var detectors = $ObstacleDetectors
-onready var sensors = $ObstacleSensors
 
 var boids = []
 var move_speed = 600
 var perception_radius = 50
-var centralization_force_radius = 500
+var centralization_force_radius = 10
 var velocity = Vector2()
 var acceleration = Vector2()
 var steer_force = 50.0
@@ -16,12 +14,13 @@ var cohesion_force = 0.5
 var seperation_force = 1.0
 var avoidance_force = 30.0
 var centralization_force = 0.5
+var prey_position: Vector2 = Vector2(0, 0)
 
 export (Array, Color) var colors
 
 func _ready():
 	randomize()
-	position = Vector2(rand_range(-800, 800), rand_range(-400, 400))
+	position = Vector2(rand_range(-800, 800), rand_range(-600, -200))
 	velocity = Vector2(rand_range(-1, 1), rand_range(-1, 1)).normalized() * move_speed
 	modulate = colors[rand_range(0, colors.size())]
 
@@ -32,10 +31,7 @@ func _process(delta):
 	acceleration += process_alignments(neighbors) * alignment_force
 	acceleration += process_cohesion(neighbors) * cohesion_force
 	acceleration += process_seperation(neighbors) * seperation_force
-	acceleration += process_centralization(Vector2(0, 0)) * centralization_force
-
-	if is_obsticle_ahead():
-		acceleration += process_obsticle_avoidance() * avoidance_force
+	acceleration += process_centralization(prey_position) * centralization_force
 		
 	velocity += acceleration * delta
 	velocity = velocity.clamped(move_speed)
@@ -43,6 +39,10 @@ func _process(delta):
 	
 	translate(velocity * delta)
 
+
+func set_prey_position(position: Vector2):
+	prey_position = position
+	
 func process_centralization(centor: Vector2):
 	if position.distance_to(centor) < centralization_force_radius:
 		return Vector2()
@@ -95,22 +95,6 @@ func steer(var target):
 	steer = steer.normalized() * steer_force
 	
 	return steer
-	
-	
-func is_obsticle_ahead():
-	for ray in detectors.get_children():
-		if ray.is_colliding():
-			return true
-			
-	return false
-	
-
-func process_obsticle_avoidance():
-	for ray in sensors.get_children():
-		if not ray.is_colliding():
-			return steer( (ray.cast_to.rotated(ray.rotation + rotation)).normalized() * move_speed )
-			
-	return Vector2.ZERO
 	
 
 func get_neighbors(view_radius):

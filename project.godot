@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="BoidsFlockingGodot"
+config/name="BoidsFlockingGodt"
 run/main_scene="res://src/Main.tscn"
 config/icon="res://icon.png"
 

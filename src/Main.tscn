@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/background_dark.png" type="Texture" id=1]
 [ext_resource path="res://src/Main.gd" type="Script" id=2]
+[ext_resource path="res://src/Prey.tscn" type="PackedScene" id=3]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 2 )
@@ -16,6 +17,7 @@ current = true
 zoom = Vector2( 2, 2 )
 smoothing_enabled = true
 
-[node name="Obstacles" type="Node2D" parent="."]
+[node name="Prey" parent="." instance=ExtResource( 3 )]
+position = Vector2( -6.67163, -773.901 )
 
 [node name="Boids" type="Node2D" parent="."]
