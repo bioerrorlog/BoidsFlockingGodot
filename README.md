@@ -1,7 +1,6 @@
-# RestInAbyss
-My gamedev project by Godot Engine
+# BoidsFlockingGodot
+Simple boids flocking implementation in Godot Engine.
 
 ## Reference
-https://github.com/bioerrorlog/BoidsFlockingGodot  
-https://youtu.be/iGvbb2HlCdQ  
+https://github.com/codatproduction/Boids-simulation
 https://github.com/alifelab/alife_book_src
