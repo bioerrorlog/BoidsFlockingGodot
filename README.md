@@ -3,7 +3,7 @@ Simple boids flocking implementation in Godot Engine.
 
 Movie: https://youtu.be/IMv7iNt1baE
 
-![screenshot](https://i.pximg.net/img-original/img/2020/07/23/11/53/30/83158660_p1.jpg)
+![screenshot](./screenshot/2020-07-21_09-42-54_1.jpg)
 
 
 ## Reference
