@@ -14,6 +14,6 @@ Repository: https://github.com/bioerrorlog/DodgeTheBoids_Godot
 
 
 ## Reference
-- [My blog post(日本語)](https://www.bioerrorlog.work/entry/boids-flocking-godot)
+- [My blog post](https://en.bioerrorlog.work/entry/boids-flocking-godot)
 - https://github.com/codatproduction/Boids-simulation  
 - https://github.com/alifelab/alife_book_src
