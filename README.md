@@ -1,4 +1,5 @@
-# BoidsFlockingGodot
+# Boids Flocking in Godot Engine
+
 Simple boids flocking implementation in Godot Engine.
 
 YouTube demo:  
