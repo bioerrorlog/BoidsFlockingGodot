@@ -43,11 +43,11 @@ func _process(delta):
 func set_prey_position(position: Vector2):
 	prey_position = position
 	
-func process_centralization(centor: Vector2):
-	if position.distance_to(centor) < centralization_force_radius:
+func process_centralization(center: Vector2):
+	if position.distance_to(center) < centralization_force_radius:
 		return Vector2()
 		
-	return steer((centor - position).normalized() * move_speed)	
+	return steer((center - position).normalized() * move_speed)	
 
 func process_cohesion(neighbors):
 	var vector = Vector2()
